@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <title>المنتجات</title>
+    <a href="Home.Html"> Home </a>
+    <a href="AboutUs.Html">AboutUs</a>
+    <a href="Appliances.Html">Appliances</a>
+    <link rel="stylesheet" href="style.css">
+    <script src="myFunctions.js">
+        
+    </script>
+    <style>
+        a{
+            font-style: italic;
+            font-size: large;
+            color: black;
+        }
+    </style>
+    <body>
+    <table style="border:solid" width="1300" height="40">
+        <body class="table"></body>
+        <tr style="background-color:orange;">
+            <td>name of product</td>
+            <td>details of product</td>
+            <td>price of product</td>
+            <td>image of product</td>
+        </tr>
+        <tr>
+            <td>HILIFE Fridge</td>
+            <td>20 FEET-NORMAL FREEZE</td>
+            <td>12000000 SYP</td>
+            <td><img src="fridge.jpg" height="100" width="100"</td>
+            <button onclick="openForm()">Add To Cart</button>
+            <script></script>
+        </tr>
+        <tr>
+            <td>Wattar Wash Machine</td>
+            <td>8 KG-LED screen-magnetic door</td>
+            <td>10000000 SYP</td>
+            <td><img src="wash machine.jpeg" height="100" width="100"</td>
+            <button onclick="openForm()">Add To Cart</button>
+        </tr>
+        <tr>
+            <td>samsung TV</td>
+            <td>50 inch-Super Amoled-16 million colors</td>
+            <td>11000000 SYP</td>
+            <td><img src="tv.png" height="100" width="100"</td>
+            <button onclick="openForm()">Add To Cart</button>
+        </tr>
+        <tr>
+            <td>Refura vacuum cleaner</td>
+            <td>21 liter-2400 watt power</td>
+            <td>3000000 SYP</td>
+            <td><img src="vacuum cleaner.png" height="100" width="100"</td>
+            <button onclick="openForm()">Add To Cart</button>
+        </tr>
+        <tr>
+            <td>Fruit Mixer</td>
+            <td>350 watt Power-1.2 liter</td>
+            <td>1000000 SYP</td>
+            <td><img src="Fruit mixer.jpg" height="100" width="100"</td>
+            <button onclick="openForm()">Add To Cart</button>
+        </tr>
+        <tr>
+            <td>Samsung Microwave</td>
+            <td>Healthy cooking-LED Screen-6 energy levels</td>
+            <td>5000000 SYP</td>
+            <td><img src="Samsung Microwave.png" height="100" width="100"</td>
+            <button onclick="openForm()">Add To Cart</button>
+        </tr>
+        <tr>
+            <td>LG Air Condition</td>
+            <td>1.7ton-WiFi control-Color White</td>
+            <td>9000000 SYP</td>
+            <td><img src="Air Condition.jpg" height="100" width="100"</td>
+            <button onclick="openForm()">Add To Cart</button>
+            <tr>
+                <td>Tornado Electric oven</td>
+                <td>48 liter Capacity-1800Watt Power-Cooling System</td>
+                <td>8000000 SYP</td>
+                <td><img src="Electric oven.jpg" height="100" width="100"</td>
+                <button onclick="openForm()">Add To Cart</button>
+            </tr>
+            <tr>
+                <td>dish washer</td>
+                <td>8 Programs-14 Places-Silver Color</td>
+                <td>15000000 SYP</td>
+                <td><img src="Dish Washer.jpg" height="100" width="100"</td>
+                <button onclick="openForm()">Add To Cart</button>
+            </tr>
+            <tr>
+                <td>FirePlace</td>
+                <td>4 Wires-The temperature can be adjusted</td>
+                <td>3000000 SYP</td>
+                <td><img src="FirePlace.jpg" height="100" width="100"</td>
+                <button onclick="openForm()">Add To Cart</button>
+            </tr>
+    </table>
+    <table style="border:solid" width="1300" height="40">
+        <tr style="background-color: orange;">
+            <td>Shopping basket</td>
+        </tr>
+    </table>
+    <div id="myForm" class="form-popup">
+        <form name="myForm" onsubmit="event.preventDefault(); validateForm()">
+          <div>
+  <label for="fullname">الاسم الكامل:</label>
+  <input type="text" id="fullname" name="fullname">
+  <span id="fullname-error" style="color: red;"></span>
+</div>
+          <div>
+            <label for="birthdate">تاريخ الميلاد:</label>
+          <input type="date" id="birthdate" name="birthdate">
+          <span id="birthdate-error" style="color: red;"></span>
+        </div>
+          <label for="nationalID">الرقم الوطني:</label>
+          <input type="text" id="nationalID" name="nationalID" required>
+          <label for="PhoneNumber">رقم الجوال</label>
+          <input type="text" id="PhoneNumber" name="PhoneNumber" required>
+          <label for="E-mail">البريد الالكتروني</label>
+          <input type="text" id="E-mail" name="E-mail" required>
+          <br><br>
+          <button type="submit">SUBMIT</button>
+          <button type="button" onclick="closeForm()">إغلاق</button>
+          onload="createCaptcha()">
+        <div class="container">
+            <div class="content">
+                <div id="captcha"></div>
+                <button class="regenerateCaptcha" style="width: 5rem; height: 2rem;" onclick="createCaptcha()">
+                    <i class="fas fa-redo"></i>
+                </button>
+            </div>
+            <input type="text" placeholder="Enter Captcha" id="captchaText" />
+            <button onclick="validateCaptcha()">Submit</button>
+        </form>
+      </div>
+      <style>
+        .form-popup {
+          display: none;
+          position: fixed;
+          bottom: 0;
+          right: 15px;
+          border: 3px solid #f1f1f1;
+          z-index: 9;
+          padding: 20px;
+          font-family: Arial, Helvetica, sans-serif;
+          background-color:cadetblue;
+        }
+        .form-popup input[type=text] {
+          width: 20%;
+        
+        }
+        .form-popup button {
+          border: none;
+          background-color: DodgerBlue;
+          color: white;
+          padding: 10px 20px;
+          font-size: 15px;
+          cursor: pointer;
+          margin-top: 10px;
+        }
+        .form-popup button:hover {
+          background-color: RoyalBlue;
+        }
+        </style>
+        </div>
+        <p>Total Price: <span id="total-price">0</span></p>
+                <div>
+                    <label for="product-price">Product Price:</label>
+                    <input type="number" id="product-price" name="product-price">
+                </div>
+                <button onclick="continueCheckout()">Continue</button>
+                <button onclick="cancelCheckout()">Cancel</button>
+    </body>
+</head>
